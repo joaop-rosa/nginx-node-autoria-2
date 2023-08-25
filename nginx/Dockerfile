@@ -2,5 +2,5 @@
 FROM nginx
 
 # Copias as configurações definidas para dentro do container
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY http.d /etc/nginx/conf.d
 COPY nginx.conf /etc/nginx/nginx.conf
