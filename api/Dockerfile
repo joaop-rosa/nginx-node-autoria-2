@@ -1,20 +1,20 @@
-# pull the Node.js Docker image
+# Faz o download da imagem do Node
 FROM node:alpine
 
-# create the directory inside the container
+# Cria o diretório dentro do container
 WORKDIR /usr/src/api
 
-# copy the package.json files from local machine to the workdir in container
+# Copia o package.json que possui as configurações do projeto
 COPY package*.json ./
 
-# run npm install in our local machine
+# Instala as dependência
 RUN npm install
 
-# copy the generated modules and all other files to the container
+# Copia todos os arquivos para dentro do container
 COPY . .
 
-# our app is running on port 5000 within the container, so need to expose it
+# Deixa exposta a porta da API
 EXPOSE 3000
 
-# the command that starts our app
+# Inicia a API
 CMD ["node", "index.js"]
